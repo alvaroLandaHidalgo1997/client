@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+		
+	</script>
+</head>
+<body>
+
+	<form >
+
+email: <input type="text" name="email" size="25" maxlength="50"><br><br>
+
+Pass: <input type="text" name="pass" size="35" maxlength="100">
+<br><br>
+<button type="button" id="loginbutton"> login </button>
+<br><br>
+</form>
+
+	<script >
+	$('loginbutton').click(function(){
+		var email = $("#email").val();
+		var Pass = $("#pass").val();
+		$.ajax({
+			type:"POST",
+			url:'http://localhost:8888/AppPassword/apppassword/public/api/login',
+			data:{
+				'name':email,
+				'password':Pass
+			},
+			success: function(response){
+
+			},
+			error: function(response){
+				console.log(response)
+			}
+		});
+	});
+</script>
+
+</form>
+</body>
+

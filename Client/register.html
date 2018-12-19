@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+		
+	</script>
+</head>
+<body>
+
+<form >
+
+Name: <input type="text" name="nombre" size="25" maxlength="50"><br><br>
+
+Pass: <input type="text" name="pass" size="35" maxlength="100">
+
+Email: <input type="text" name="email" size="35" maxlength="100">
+<br><br>
+<button type="button" id="registerbutton"> register</button>
+<br><br>
+
+	
+</form>
+<script >
+		$('#registerbutton').click(function(){
+		var name = $("#nombre").val();
+		var Pass = $("#pass").val();
+		var email = $("#email").val();
+		$.ajax({
+			type:"POST",
+			url:'http://localhost:8888/AppPassword/apppassword/public/api/register',
+			data:{
+				'name':name,
+				'password':Pass,
+				'email':email
+			},
+			success: function(response){
+				
+			},
+			error: function(response){
+				console.log(response)
+			}
+		});
+	});
+
+</script>
+
+</form>
+</body>
+
